@@ -91,7 +91,7 @@ class CompanyResultJobStatusTest extends TestCase
             'Authorization' => 'Bearer ' . $response->json('token'),
         ])->getJson('v1/api/company-result-status?company_domain='.$domain);
 
-        $response->dump()
+        $response
             ->assertUnprocessable();
         $this->assertEquals('No jobs found for this domain: facebook.com', $response->json('message'));
     }
